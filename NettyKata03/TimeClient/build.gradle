@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'checkstyle'
+
+mainClassName = "org.raig.TimeClient.TimeClient"
+repositories {
+	mavenCentral()
+}
+
+checkstyle {
+    toolVersion ="6.4"
+}
+
+dependencies {
+	compile 'io.netty:netty-all:5.0.0.Alpha1'
+}
+
+run {
+    if ( project.hasProperty("appArgs") ) {
+        args Eval.me(appArgs)
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
