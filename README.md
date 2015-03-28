@@ -72,3 +72,29 @@ run>>
 initChannel>>
 initChannel<<
 ```
+
+
+Interesting parts of source code:
+
+In TimeClient:
+
+````
+  // Start the client.
+  ChannelFuture f = b.connect(host, port).sync(); 
+
+  // Wait until the connection is closed.
+  // If you remove ".sync()" the program exits and not process the
+  // response from the server
+  f.channel().closeFuture().sync();
+````
+
+In TimeClientHandler:
+
+Releasing the message:
+
+```
+} finally {
+  m.release();
+}
+```
+      
