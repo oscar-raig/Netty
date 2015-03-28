@@ -15,7 +15,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 public class TimeClient {
   public static void main(String[] args) throws Exception {
-    System.out.println(args);
+
     String host = args[0];
     System.out.println(host);
     int port = Integer.parseInt(args[1]);
@@ -37,6 +37,8 @@ public class TimeClient {
       ChannelFuture f = b.connect(host, port).sync(); // (5)
 
       // Wait until the connection is closed.
+      // If you remove ".sync()" the program exits and not process the
+      // response from the server
       f.channel().closeFuture().sync();
     } finally {
       workerGroup.shutdownGracefully();
