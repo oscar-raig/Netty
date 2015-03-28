@@ -48,3 +48,27 @@ run>>
 initChannel>>
 initChannel<<
 ```
+
+
+---
+###NettyKata03
+Time Server and Time Client simple example written with netty and build with gradle 
+
+For executing Server
+
+```
+gradle run
+```
+
+For exectuing Client
+
+```
+gradle run  -PappArgs="['localhost','8080']"
+```
+
+You will see in the client terminal the date "Sat Mar 28 17:48:38 CET 2015" and some traces in Server
+```
+run>>
+initChannel>>
+initChannel<<
+```
